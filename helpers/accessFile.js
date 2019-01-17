@@ -10,7 +10,7 @@ function getDishes() {
 function addDish(dish) {
     return db('dishes')
     .insert(dish)
-    // .then(id => ({ id: id }))
+    .then(id => id[0])
 }
 
 function getDish(id) {
@@ -25,7 +25,7 @@ function getRecipes() {
 function addRecipe(recipe) {
     return db('recipes')
     .insert(recipe)
-    // .then(id => ({ id: id }))
+    .then(id => id[0])
 }
 
 module.exports = {

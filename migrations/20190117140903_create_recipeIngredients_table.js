@@ -1,29 +1,28 @@
-
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('recipeIngredients', tbl => {
-      tbl.increments();
+  return knex.schema.createTable("recipeIngredients", tbl => {
+    tbl.increments();
 
-      tbl
-      .integer('recipe_id')
+    tbl
+      .integer("recipe_id")
       .unsigned()
       .notNullable()
-      .references('id')
-      .inTable('recipes');
+      .references("id")
+      .inTable("recipes");
 
-      tbl
-      .integer('ingredient_id')
+    tbl
+      .integer("ingredient_id")
       .unsigned()
       .notNullable()
-      .references('id')
-      .inTable('ingredients')
+      .references("id")
+      .inTable("ingredients");
 
-      tbl
-      .float('quantity')
+    tbl
+      .float("quantity")
       .unsigned()
-      .notNullable()
-  })
+      .notNullable();
+  });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists('recipeIngredients');
+  return knex.schema.dropTableIfExists("recipeIngredients");
 };
